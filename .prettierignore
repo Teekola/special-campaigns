@@ -1,0 +1,4 @@
+*.next
+*.turbo
+*tsconfig.buildinfo
+*next-env.d.ts
