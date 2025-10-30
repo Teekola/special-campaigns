@@ -50,17 +50,26 @@ export function ActivateGiftForm() {
          try {
             setIsSubmitting(true);
             // Check if activation is possible
-            await checkEmailForActivation({
+            const checkEmailResult = await checkEmailForActivation({
                orderReference,
                email: values.email,
             });
-            await activateCourse(values);
-            await updateActivation({
+            if (checkEmailResult?.error) {
+               throw new Error(checkEmailResult.error);
+            }
+            const activationResult = await activateCourse(values);
+            if (activationResult?.error) {
+               throw new Error(activationResult.error);
+            }
+            const updateResult = await updateActivation({
                orderReference,
                type: ActivationType.GIFT,
                status: ActivationStatus.COMPLETED,
                ...values,
             });
+            if (updateResult?.error) {
+               throw new Error(updateResult.error);
+            }
             router.push(BLACK_FRIDAY_GIFT_CLAIMED_PAGE);
          } catch (error) {
             setIsSubmitting(false);

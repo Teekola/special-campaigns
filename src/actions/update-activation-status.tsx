@@ -17,20 +17,26 @@ export async function updateActivation({
    name?: string;
    email?: string;
    course?: string;
-}) {
-   const result = await prisma.activation.update({
-      where: {
-         orderReference_type: {
-            type,
-            orderReference,
+}): Promise<{ error: string } | undefined> {
+   try {
+      await prisma.activation.update({
+         where: {
+            orderReference_type: {
+               type,
+               orderReference,
+            },
          },
-      },
-      data: {
-         status,
-         name,
-         email,
-         course,
-      },
-   });
-   return result;
+         data: {
+            status,
+            name,
+            email,
+            course,
+         },
+      });
+   } catch (error) {
+      console.error(error);
+      return {
+         error: "Aktivoinnin tilan päivitys epäonnistui. Yritä myöhemmin uudelleen.",
+      };
+   }
 }

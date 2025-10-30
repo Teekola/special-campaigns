@@ -9,7 +9,7 @@ export async function checkEmailForActivation({
 }: {
    orderReference: string;
    email?: string;
-}) {
+}): Promise<{ error: string } | undefined> {
    const result = await prisma.activation.findUnique({
       where: {
          orderReference_type: {
@@ -20,9 +20,8 @@ export async function checkEmailForActivation({
    });
 
    if (result?.email === email) {
-      throw new Error(
-         "Et voi aktivoida kaverille tarkoitettua kurssia itsellesi."
-      );
+      return {
+         error: "Et voi aktivoida kaverille tarkoitettua kurssia itsellesi.",
+      };
    }
-   return result;
 }

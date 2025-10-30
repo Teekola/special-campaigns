@@ -44,17 +44,23 @@ export function ActivateForSelfForm({
       ) => {
          try {
             setIsSubmitting(true);
-            await activateCourse({
+            const activationResult = await activateCourse({
                courseName: values.courseName,
                name,
                email,
             });
-            await updateActivation({
+            if (activationResult?.error) {
+               throw new Error(activationResult.error);
+            }
+            const updateResult = await updateActivation({
                orderReference,
                type: ActivationType.FOR_SELF,
                status: ActivationStatus.COMPLETED,
                course: values.courseName,
             });
+            if (updateResult?.error) {
+               throw new Error(updateResult.error);
+            }
             router.push(`/aktivoi/${orderReference}/itse/valmis`);
          } catch (error) {
             setIsSubmitting(false);

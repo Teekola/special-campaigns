@@ -10,7 +10,7 @@ export async function activateCourse({
    courseName: string;
    name: string;
    email: string;
-}) {
+}): Promise<{ error: string } | undefined> {
    const url = getWebhookUrl(courseName) + "?send_offer_grant_email=true";
    const result = await fetch(url, {
       method: "POST",
@@ -29,11 +29,11 @@ export async function activateCourse({
             "has already been granted to this member"
          )
       ) {
-         throw new Error("Kurssi on jo aktivoitu.");
+         return { error: "Kurssi on jo aktivoitu." };
       }
 
       console.error(response);
 
-      throw new Error("Kurssin aktivointi epäonnistui.");
+      return { error: "Kurssin aktivointi epäonnistui." };
    }
 }
