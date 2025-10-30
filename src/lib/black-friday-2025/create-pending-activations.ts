@@ -5,9 +5,11 @@ import { ApiError } from "../error";
 export async function createPendingActivations({
    orderReference,
    email,
+   firstName,
 }: {
    orderReference: string;
    email: string;
+   firstName: string;
 }) {
    try {
       const createdActivations = await prisma.activation.createMany({
@@ -16,10 +18,11 @@ export async function createPendingActivations({
                orderReference,
                type: ActivationType.FOR_SELF,
                email,
+               name: firstName,
             },
             {
                orderReference,
-               type: ActivationType.FOR_FRIEND,
+               type: ActivationType.GIFT,
             },
          ],
       });

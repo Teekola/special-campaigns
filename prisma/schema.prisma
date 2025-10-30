@@ -19,22 +19,18 @@ model Activation {
    orderReference String
    type           ActivationType
    status         ActivationStatus @default(PENDING)
+   name           String?
    email          String?
    course         String?
    createdAt      DateTime         @default(now())
    updatedAt      DateTime         @updatedAt
-
-   // NOTE: Enforce manually that the user can not activate one for themselves and then
-   // use the friend link for activating for themselves too
-   // This is done by fetching activations with the orderReference and getting the existing email,
-   // Which is the FOR_SELF email, that is unallowed then for the FOR_FRIEND link.
 
    @@unique([orderReference, type])
 }
 
 enum ActivationType {
    FOR_SELF
-   FOR_FRIEND
+   GIFT
 }
 
 enum ActivationStatus {

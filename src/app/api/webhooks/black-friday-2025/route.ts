@@ -23,7 +23,11 @@ export async function POST(request: Request) {
       }
 
       // Store records to database
-      await createPendingActivations({ orderReference, email });
+      await createPendingActivations({
+         orderReference,
+         email,
+         firstName,
+      });
 
       // Build and send the email
       await buildAndSendEmail({

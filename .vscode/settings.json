@@ -10,5 +10,8 @@
    "editor.detectIndentation": false,
    "[prisma]": {
       "editor.defaultFormatter": "Prisma.prisma"
+   },
+   "[http]": {
+      "editor.defaultFormatter": "ShinyaSuzuki.rest-formatter"
    }
 }

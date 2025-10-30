@@ -1,8 +1,26 @@
-import { use } from "react";
+import { ActivateGiftContent } from "@/components/activate-gift-content";
+import { ActivationType } from "@/generated/prisma";
+import { getActivation } from "@/lib/black-friday-2025/get-activation";
+import { Suspense, use } from "react";
 
-export default function AktivoiLahjaPage({
+export default function AktivoiItsePage({
    params,
 }: PageProps<"/aktivoi/[orderReference]/lahja">) {
    const { orderReference } = use(params);
-   return <h1>Lahja {orderReference}</h1>;
+
+   const activationPromise = getActivation(orderReference, ActivationType.GIFT);
+
+   return (
+      <div className="max-w-md mx-auto">
+         <Suspense
+            fallback={
+               <div className="grid place-items-center h-[227.25px] animate-pulse">
+                  Tarkistetaan, onko aktivointi saatavilla...
+               </div>
+            }
+         >
+            <ActivateGiftContent activationPromise={activationPromise} />
+         </Suspense>
+      </div>
+   );
 }
