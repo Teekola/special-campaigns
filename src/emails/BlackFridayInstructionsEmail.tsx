@@ -128,8 +128,8 @@ export default function BlackFridayInstructionsEmail({
                         <Button
                            href={bonusActivationUrl}
                            style={{
-                              backgroundColor: "#ff0000",
-                              color: "#ffffff",
+                              backgroundColor: "#2ecc71",
+                              color: "#000",
                               padding: "12px 20px",
                               borderRadius: "4px",
                               textDecoration: "none",
@@ -170,14 +170,14 @@ export default function BlackFridayInstructionsEmail({
                         <Text
                            style={{
                               wordBreak: "break-all",
-                              color: "#ff4444",
+                              color: "#2ecc71",
                               fontSize: "14px",
                            }}
                         >
                            <a
                               href={friendGiftUrl}
                               style={{
-                                 color: "#ff4444",
+                                 color: "#2ecc71",
                                  textDecoration: "underline",
                                  wordBreak: "break-all",
                               }}
