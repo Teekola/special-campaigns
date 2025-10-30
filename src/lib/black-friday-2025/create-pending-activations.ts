@@ -1,4 +1,4 @@
-import { ActivationType } from "@/generated/prisma/enums";
+import { ActivationType } from "@/generated/prisma";
 import prisma from "@/lib/prisma";
 import { ApiError } from "../error";
 
