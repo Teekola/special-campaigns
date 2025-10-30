@@ -13,16 +13,22 @@
       "db:push": "prisma db push",
       "db:migrate": "prisma migrate dev --skip-generate",
       "db:deploy": "prisma migrate deploy",
-      "db:studio": "prisma studio"
+      "db:studio": "prisma studio",
+      "emails:dev": "email dev --dir=./src/emails"
    },
    "dependencies": {
+      "@aws-sdk/client-ses": "^3.920.0",
       "@prisma/client": "^6.18.0",
+      "@react-email/components": "0.5.7",
+      "@t3-oss/env-nextjs": "^0.13.8",
       "dotenv": "^17.2.3",
       "next": "16.0.1",
       "react": "19.2.0",
-      "react-dom": "19.2.0"
+      "react-dom": "19.2.0",
+      "zod": "^4.1.12"
    },
    "devDependencies": {
+      "@react-email/preview-server": "^4.3.2",
       "@tailwindcss/postcss": "^4",
       "@trivago/prettier-plugin-sort-imports": "^5.2.2",
       "@types/node": "^20",
@@ -33,6 +39,7 @@
       "eslint-config-next": "16.0.1",
       "prettier-plugin-tailwindcss": "^0.7.1",
       "prisma": "^6.18.0",
+      "react-email": "^4.3.2",
       "tailwindcss": "^4",
       "typescript": "^5"
    }

@@ -19,7 +19,8 @@
          }
       ],
       "paths": {
-         "@/ui/*": ["./src/*"]
+         "@/*": ["./src/*"],
+         "@/ui/*": ["./src/components/ui/*"]
       }
    },
    "include": [
