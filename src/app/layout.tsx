@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-   title: "Black Friday 2026",
-   description: "HyvinvointiHeimon Black Friday 2026",
+   title: "Black Friday 2025",
+   description: "HyvinvointiHeimon Black Friday 2025",
 };
 
 export default function RootLayout({
