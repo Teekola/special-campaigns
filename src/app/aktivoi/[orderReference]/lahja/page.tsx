@@ -14,7 +14,7 @@ export default function AktivoiItsePage({
       <div className="max-w-md mx-auto">
          <Suspense
             fallback={
-               <div className="grid place-items-center h-[227.25px] animate-pulse">
+               <div className="grid place-items-center h-[417.75px] animate-pulse">
                   Tarkistetaan, onko aktivointi saatavilla...
                </div>
             }
