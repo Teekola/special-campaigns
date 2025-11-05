@@ -136,10 +136,10 @@ export const FormInput: FormControlFunc<{ placeholder?: string }> = ({
    );
 };
 
-export const FormSelect: FormControlFunc<{ children: ReactNode }> = ({
-   children,
-   ...props
-}) => {
+export const FormSelect: FormControlFunc<{
+   children: ReactNode;
+   placeholder?: string;
+}> = ({ children, placeholder, ...props }) => {
    return (
       <FormBase {...props}>
          {({ onChange, onBlur, ...field }) => (
@@ -149,7 +149,7 @@ export const FormSelect: FormControlFunc<{ children: ReactNode }> = ({
                   id={field.id}
                   onBlur={onBlur}
                >
-                  <SelectValue />
+                  <SelectValue placeholder={placeholder} />
                </SelectTrigger>
                <SelectContent>{children}</SelectContent>
             </Select>

@@ -111,6 +111,7 @@ export function ActivateGiftForm() {
                   control={form.control}
                   name="courseName"
                   label="Kurssi"
+                  placeholder="Valitse kurssi..."
                   disabled={isSubmitting}
                >
                   {Object.keys(courseOptions).map((option) => (
