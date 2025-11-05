@@ -98,7 +98,7 @@ export function ActivateGiftForm() {
             <FieldDescription>
                Syötä nimesi ja sähöpostiosoitteesi, valitse, minkä kurssin
                haluat aktivoida itsellesi ja paina sen jälkeen
-               aktivointi-painiketta.
+               aktivointipainiketta.
             </FieldDescription>
             <FieldGroup>
                <FormInput control={form.control} name="name" label="Nimi" />

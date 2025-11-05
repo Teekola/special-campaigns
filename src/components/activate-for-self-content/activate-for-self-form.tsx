@@ -84,7 +84,7 @@ export function ActivateForSelfForm({
             <FieldLegend className="">Aktivoi kurssi</FieldLegend>
             <FieldDescription>
                Valitse, minkä toisen kurssin haluat aktivoida itsellesi ja paina
-               sen jälkeen aktivointi-painiketta.
+               sen jälkeen aktivointipainiketta.
             </FieldDescription>
             <FormSelect
                control={form.control}
