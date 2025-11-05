@@ -216,8 +216,7 @@ export default function BlackFridayInstructionsEmail({
                         marginTop: "20px",
                      }}
                   >
-                     © {new Date().getFullYear()} {companyName}. Kaikki oikeudet
-                     pidätetään.
+                     © {new Date().getFullYear()} {companyName}
                   </Text>
                </Section>
             </Container>
