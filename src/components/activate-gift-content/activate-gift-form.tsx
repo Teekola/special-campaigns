@@ -6,12 +6,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormInput, FormSelect } from "@/ui/form";
 import { SelectItem } from "../ui/select";
-import {
-   FieldDescription,
-   FieldGroup,
-   FieldLegend,
-   FieldSet,
-} from "../ui/field";
+import { FieldGroup, FieldLegend, FieldSet } from "../ui/field";
 import { Button } from "../ui/button";
 import { courseOptions } from "@/lib/black-friday-2025/courses";
 import { activateCourse } from "@/actions/activate-course";
@@ -93,13 +88,29 @@ export function ActivateGiftForm() {
          onSubmit={form.handleSubmit((values) => onSubmit(values, form))}
          className="space-y-6"
       >
+         <h1 className="text-xl">Tervetuloa HyvinvointiHeimon sivuille!</h1>
+
+         <p className="text-base text-muted-foreground">
+            Taisit saada tämän linkin kaveriltasi? Hienoa, sillä hän tilasi
+            HyvinvointiHeimon Black Friday 2025 -tarjouksen, johon sisältyy yksi
+            ilmainen verkkokurssi kaverille jaettavaksi. Onneksi olkoon,
+            kaverisi on päättänyt antaa ilmaisen verkkokurssin sinulle 😊
+         </p>
+
          <FieldSet>
-            <FieldLegend className="">Aktivoi kurssi</FieldLegend>
-            <FieldDescription>
-               Syötä nimesi ja sähöpostiosoitteesi, valitse, minkä kurssin
-               haluat aktivoida itsellesi ja paina sen jälkeen
-               aktivointipainiketta.
-            </FieldDescription>
+            <FieldLegend className="">Toimi näin:</FieldLegend>
+
+            <ol className="list-decimal list-inside text-muted-foreground">
+               <li>
+                  Syötä nimi ja sähköpostiosoite, valitse kurssi ja klikkaa
+                  Aktivoi-nappia.
+               </li>
+               <li>Aktivoimme verkkokurssin sähköpostiosoitteellesi.</li>
+               <li>
+                  Saat sähköpostiisi käyttäjätunnuksen ja kirjautumisohjeet.
+               </li>
+            </ol>
+
             <FieldGroup>
                <FormInput control={form.control} name="name" label="Nimi" />
                <FormInput

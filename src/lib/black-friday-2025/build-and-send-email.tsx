@@ -14,12 +14,12 @@ export async function buildAndSendEmail({
    firstName,
    email,
    orderReference,
-   offerEndDate,
+   friendActivationEndDate,
 }: {
    firstName: string;
    email: string;
    orderReference: string;
-   offerEndDate: Date;
+   friendActivationEndDate: Date;
 }) {
    // Generate URLs
    const { bonusActivationUrl, friendGiftUrl } = generateUrls(orderReference);
@@ -29,7 +29,9 @@ export async function buildAndSendEmail({
          companyName={COMPANY_NAME}
          bonusActivationUrl={bonusActivationUrl}
          friendGiftUrl={friendGiftUrl}
-         offerEndDate={dateTimeFormatter.format(offerEndDate)}
+         friendActivationEndDate={dateTimeFormatter.format(
+            friendActivationEndDate
+         )}
       />
    );
    const emailText = toPlainText(emailHtml);

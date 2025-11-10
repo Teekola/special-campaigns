@@ -14,7 +14,8 @@ interface BlackFridayInstructionsEmailProps {
    customerName?: string;
    bonusActivationUrl: string;
    friendGiftUrl: string;
-   offerEndDate: string;
+
+   friendActivationEndDate: string;
    companyName?: string;
 }
 
@@ -22,7 +23,8 @@ export default function BlackFridayInstructionsEmail({
    customerName,
    bonusActivationUrl,
    friendGiftUrl,
-   offerEndDate,
+
+   friendActivationEndDate,
    companyName = "Yrityksen nimi",
 }: BlackFridayInstructionsEmailProps) {
    return (
@@ -60,7 +62,7 @@ export default function BlackFridayInstructionsEmail({
                         color: "#ffffff",
                      }}
                   >
-                     Ohjeet ilmaisten Black Friday -kurssiesi aktivoimiseen
+                     Ohjeet ilmaisten Black Friday -kurssien aktivoimiseen
                   </Heading>
                </Section>
 
@@ -101,8 +103,53 @@ export default function BlackFridayInstructionsEmail({
                         color: "#f0f0f0",
                      }}
                   >
-                     <div style={{ margin: "32px 0px" }}>
+                     <div>
                         <strong style={{ color: "#ffffff" }}>1.</strong>{" "}
+                        <Heading
+                           as="h3"
+                           style={{
+                              display: "inline",
+                              fontSize: "15px",
+                              fontWeight: "bold",
+                              color: "#ffffff",
+                              marginLeft: "4px",
+                           }}
+                        >
+                           Jaa ilmainen kurssi kaverillesi
+                        </Heading>
+                        <Text
+                           style={{
+                              marginTop: "6px",
+                              marginBottom: "12px",
+                              color: "#f0f0f0",
+                           }}
+                        >
+                           Lähetä alla oleva linkki ystävällesi. Hän voi
+                           aktivoida oman kurssinsa Black Friday -kampanjan
+                           aikana (<strong>{friendActivationEndDate}</strong>{" "}
+                           mennessä).
+                        </Text>
+                        <Text
+                           style={{
+                              wordBreak: "break-all",
+                              color: "#2ecc71",
+                              fontSize: "14px",
+                           }}
+                        >
+                           <a
+                              href={friendGiftUrl}
+                              style={{
+                                 color: "#2ecc71",
+                                 textDecoration: "underline",
+                                 wordBreak: "break-all",
+                              }}
+                           >
+                              {friendGiftUrl}
+                           </a>
+                        </Text>
+                     </div>
+                     <div style={{ margin: "32px 0px" }}>
+                        <strong style={{ color: "#ffffff" }}>2.</strong>{" "}
                         <Heading
                            as="h3"
                            style={{
@@ -141,51 +188,6 @@ export default function BlackFridayInstructionsEmail({
                            Aktivoi oma kurssi
                         </Button>
                      </div>
-
-                     <div>
-                        <strong style={{ color: "#ffffff" }}>2.</strong>{" "}
-                        <Heading
-                           as="h3"
-                           style={{
-                              display: "inline",
-                              fontSize: "15px",
-                              fontWeight: "bold",
-                              color: "#ffffff",
-                              marginLeft: "4px",
-                           }}
-                        >
-                           Jaa ilmainen kurssi kaverillesi
-                        </Heading>
-                        <Text
-                           style={{
-                              marginTop: "6px",
-                              marginBottom: "12px",
-                              color: "#f0f0f0",
-                           }}
-                        >
-                           Lähetä alla oleva linkki ystävällesi. Hän voi
-                           aktivoida oman kurssinsa Black Friday -kampanjan
-                           aikana (<strong>{offerEndDate}</strong> mennessä).
-                        </Text>
-                        <Text
-                           style={{
-                              wordBreak: "break-all",
-                              color: "#2ecc71",
-                              fontSize: "14px",
-                           }}
-                        >
-                           <a
-                              href={friendGiftUrl}
-                              style={{
-                                 color: "#2ecc71",
-                                 textDecoration: "underline",
-                                 wordBreak: "break-all",
-                              }}
-                           >
-                              {friendGiftUrl}
-                           </a>
-                        </Text>
-                     </div>
                   </div>
                </Section>
 
@@ -196,7 +198,8 @@ export default function BlackFridayInstructionsEmail({
                         color: "#cccccc",
                      }}
                   >
-                     Tarjous on voimassa <strong>{offerEndDate}</strong> saakka.
+                     Aktivointilinkit ovat voimassa tiistaihin{" "}
+                     <strong>{friendActivationEndDate}</strong> saakka.
                      <br />
                      Muista aktivoida kurssit ennen määräaikaa.
                   </Text>
@@ -229,6 +232,6 @@ BlackFridayInstructionsEmail.PreviewProps = {
    customerName: "Matti",
    bonusActivationUrl: "https://example.com/bonus",
    friendGiftUrl: "https://example.com/kaveri",
-   offerEndDate: "30.11.2025",
+   friendActivationEndDate: "2.12.2025",
    companyName: "HyvinvointiHeimo Oy",
 } as BlackFridayInstructionsEmailProps;

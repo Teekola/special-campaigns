@@ -1,6 +1,6 @@
 import { buildAndSendEmail } from "@/lib/black-friday-2025/build-and-send-email";
 
-import { OFFER_END_DATE } from "@/lib/black-friday-2025/config";
+import { FRIEND_ACTIVATION_END_DATE } from "@/lib/black-friday-2025/config";
 import { createPendingActivations } from "@/lib/black-friday-2025/create-pending-activations";
 import { shouldExecute } from "@/lib/black-friday-2025/should-execute";
 import { validateApiKey } from "@/lib/black-friday-2025/validate-api-key";
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
          firstName,
          email,
          orderReference,
-         offerEndDate: OFFER_END_DATE,
+         friendActivationEndDate: FRIEND_ACTIVATION_END_DATE,
       });
 
       return Response.json({ success: true });

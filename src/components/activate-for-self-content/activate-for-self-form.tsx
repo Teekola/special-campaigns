@@ -84,7 +84,8 @@ export function ActivateForSelfForm({
             <FieldLegend className="">Aktivoi kurssi</FieldLegend>
             <FieldDescription>
                Valitse, minkä toisen kurssin haluat aktivoida itsellesi ja paina
-               sen jälkeen aktivointipainiketta.
+               sen jälkeen aktivointipainiketta. Kurssi aktivoidaan samalle
+               sähköpostiosoitteelle, jolla tilasit Black Friday -tarjouksen.
             </FieldDescription>
             <FormSelect
                control={form.control}
